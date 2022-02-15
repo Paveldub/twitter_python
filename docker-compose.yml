@@ -1,13 +1,20 @@
 version: "3.9"
 
 services:
+  djangobackend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
   postgres:
     image: postgres:14
-    environment:
-      POSTGRES_DB: "postgres"
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-      POSTGRES_SERVER: "localhost"
+    env_file:
+      - .env
     ports:
       - "5431:5432"
     volumes:
