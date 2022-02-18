@@ -5,7 +5,8 @@ from user.models import User
 from user.api.serializers import UserSerializer
 
 
-class UserViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
+class UserViewSet(mixins.CreateModelMixin, mixins.RetrieveModelMixin,
+                  mixins.UpdateModelMixin,
                   mixins.DestroyModelMixin, viewsets.GenericViewSet):
 
     queryset = User.objects.all()

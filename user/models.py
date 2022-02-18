@@ -5,8 +5,8 @@ from django.db import models
 class User(AbstractUser):
 
     class Roles(models.TextChoices):
-        USER = 'user'
-        MODERATOR = 'moderator'
+        USER = 'user', 'юзер'
+        MODERATOR = 'moderator', "модератор"
         ADMIN = 'admin'
 
     email = models.EmailField(unique=True)
